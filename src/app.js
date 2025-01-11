@@ -1,12 +1,14 @@
 const express = require("express");
 const connectDB = require("./config/database");
 const authRouter = require("./routes/user");
+const todoRouter = require("./routes/todo");
 
 const app = express();
 
 app.use(express.json());
 
 app.use("/", authRouter);
+app.use("/", todoRouter);
 
 app.use((req, res) => {
   res.send("Hello from the server");
